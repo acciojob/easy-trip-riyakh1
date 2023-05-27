@@ -47,4 +47,28 @@ public class AirportRepository {
         flightPassenger.put(flightId,listOfPassenger);
         return "SUCCESS";
     }
+
+    public String cancelATicket(Integer flightId, Integer passengerId) {
+        Set<Integer> flightIds = flightMap.keySet();
+        Set<Integer> passengersIds = passengerMap.keySet();
+        if(!flightIds.contains(flightId)) return "FAILURE";
+        if(!passengersIds.contains(passengerId)) return "FAILURE";
+
+        if (!passengerWithFlightsMap.containsKey(passengerId)) {
+            return "FAILURE";
+        }
+        if(passengerWithFlightsMap.containsKey(passengerId)){
+            List<Integer> listOfFlightsWithPassenger=passengerWithFlightsMap.get(passengerId);
+            if(!listOfFlightsWithPassenger.contains(flightId)) return "FAILURE";
+            listOfFlightsWithPassenger.remove(flightId);
+            passengerWithFlightsMap.put(passengerId,listOfFlightsWithPassenger);
+        }
+
+        List<Integer> listOfBookedTicked=flightPassenger.get(flightId);
+        if(!listOfBookedTicked.contains(passengerId)) return "FAILURE";
+        listOfBookedTicked.remove(passengerId);
+        flightPassenger.put(flightId,listOfBookedTicked);
+        return "SUCCESS";
+
+    }
 }

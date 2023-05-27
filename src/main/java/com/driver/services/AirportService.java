@@ -49,4 +49,8 @@ public class AirportService {
     public String bookTicket(Integer flightId, Integer passengerId) {
         return airportRepository.bookTicket(flightId,passengerId);
     }
+
+    public String cancelATicket(Integer flightId, Integer passengerId) {
+        return airportRepository.cancelATicket(flightId,passengerId);
+    }
 }
