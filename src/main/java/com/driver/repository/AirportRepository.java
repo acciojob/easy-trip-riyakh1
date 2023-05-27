@@ -71,4 +71,15 @@ public class AirportRepository {
         return "SUCCESS";
 
     }
+
+    public int countOfBookingsDoneByPassengerAllCombined(Integer passengerId) {
+        int count=0;
+        for(Integer flightId:flightPassenger.keySet()){
+            Set<Integer> list= (Set<Integer>) flightPassenger.get(flightId);
+            if(list.contains(passengerId)){
+                count++;
+            }
+        }
+        return count;
+    }
 }

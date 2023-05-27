@@ -53,4 +53,8 @@ public class AirportService {
     public String cancelATicket(Integer flightId, Integer passengerId) {
         return airportRepository.cancelATicket(flightId,passengerId);
     }
+
+    public int countOfBookingsDoneByPassengerAllCombined(Integer passengerId) {
+        return airportRepository.countOfBookingsDoneByPassengerAllCombined(passengerId);
+    }
 }
