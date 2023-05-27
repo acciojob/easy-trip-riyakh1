@@ -57,4 +57,8 @@ public class AirportService {
     public int countOfBookingsDoneByPassengerAllCombined(Integer passengerId) {
         return airportRepository.countOfBookingsDoneByPassengerAllCombined(passengerId);
     }
+
+    public void addFlight(Flight flight) {
+        airportRepository.addFlight(flight);
+    }
 }

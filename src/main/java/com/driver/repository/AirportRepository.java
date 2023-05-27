@@ -82,4 +82,10 @@ public class AirportRepository {
         }
         return count;
     }
+
+    public void addFlight(Flight flight) {
+        int id=flight.getFlightId();
+        flightList.add(flight);
+        flightMap.put(id,flight);
+    }
 }

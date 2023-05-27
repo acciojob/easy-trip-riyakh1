@@ -100,7 +100,7 @@ public class AirportController {
 
     @PostMapping("/add-flight")
     public String addFlight(@RequestBody Flight flight){
-
+        airportService.addFlight(flight);
         //Return a "SUCCESS" message string after adding a flight.
        return null;
     }
