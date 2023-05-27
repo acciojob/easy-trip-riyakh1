@@ -1,13 +1,11 @@
 package com.driver.repository;
 
 import com.driver.model.Airport;
+import com.driver.model.City;
 import com.driver.model.Flight;
 import com.driver.model.Passenger;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class AirportRepository {
 
@@ -32,5 +30,21 @@ public class AirportRepository {
 
     public List<Flight> getAllFlight() {
         return flightList;
+    }
+
+    public String bookTicket(Integer flightId, Integer passengerId) {
+        bookingCount.put(passengerId,bookingCount.getOrDefault(passengerId,0)+1);
+
+        Flight flight=flightMap.get(flightId);
+        List<Integer> listOfPassenger=flightPassenger.getOrDefault(flightId,new ArrayList<>());
+        if (flight.getMaxCapacity()==listOfPassenger.size())return "FAILURE";
+
+        List<Integer> listOfFilghtsWithPasenger=passengerWithFlightsMap.getOrDefault(passengerId,new ArrayList<>());
+        listOfFilghtsWithPasenger.add(flightId);
+        passengerWithFlightsMap.put(passengerId,listOfFilghtsWithPasenger);
+
+        listOfPassenger.add(passengerId);
+        flightPassenger.put(flightId,listOfPassenger);
+        return "SUCCESS";
     }
 }

@@ -5,6 +5,7 @@ import com.driver.model.City;
 import com.driver.model.Flight;
 import com.driver.repository.AirportRepository;
 
+import java.util.Date;
 import java.util.List;
 
 public class AirportService {
@@ -44,5 +45,8 @@ public class AirportService {
         }
         if(min==Double.MAX_VALUE)return -1;
         return min;
+    }
+    public String bookTicket(Integer flightId, Integer passengerId) {
+        return airportRepository.bookTicket(flightId,passengerId);
     }
 }
