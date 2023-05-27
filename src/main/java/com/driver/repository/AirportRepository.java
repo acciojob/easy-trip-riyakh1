@@ -88,4 +88,9 @@ public class AirportRepository {
         flightList.add(flight);
         flightMap.put(id,flight);
     }
+
+    public void addPassenger(Passenger passenger) {
+        int id=passenger.getPassengerId();
+        passengerMap.put(id,passenger);
+    }
 }

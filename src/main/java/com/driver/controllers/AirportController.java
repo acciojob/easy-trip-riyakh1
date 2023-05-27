@@ -133,7 +133,7 @@ public class AirportController {
 
         //Add a passenger to the database
         //And return a "SUCCESS" message if the passenger has been added successfully.
-
+        airportService.addPassenger(passenger);
        return null;
     }
 

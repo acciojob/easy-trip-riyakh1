@@ -3,6 +3,7 @@ package com.driver.services;
 import com.driver.model.Airport;
 import com.driver.model.City;
 import com.driver.model.Flight;
+import com.driver.model.Passenger;
 import com.driver.repository.AirportRepository;
 
 import java.util.Date;
@@ -60,5 +61,9 @@ public class AirportService {
 
     public void addFlight(Flight flight) {
         airportRepository.addFlight(flight);
+    }
+
+    public void addPassenger(Passenger passenger) {
+        airportRepository.addPassenger(passenger);
     }
 }
