@@ -39,7 +39,7 @@ public class AirportController {
 
     @GetMapping("/get-shortest-time-travel-between-cities")
     public double getShortestDurationOfPossibleBetweenTwoCities(@RequestParam("fromCity") City fromCity, @RequestParam("toCity")City toCity){
-
+        double time=airportService.getShortestDurationOfPossibleBetweenTwoCities(fromCity,toCity);
         //Find the duration by finding the shortest flight that connects these 2 cities directly
         //If there is no direct flight between 2 cities return -1.
 

@@ -29,4 +29,8 @@ public class AirportRepository {
     public List<Airport> getAllAirport() {
         return airportList;
     }
+
+    public List<Flight> getAllFlight() {
+        return flightList;
+    }
 }

@@ -1,6 +1,8 @@
 package com.driver.services;
 
 import com.driver.model.Airport;
+import com.driver.model.City;
+import com.driver.model.Flight;
 import com.driver.repository.AirportRepository;
 
 import java.util.List;
@@ -30,5 +32,17 @@ public class AirportService {
             }
         }
         return str;
+    }
+
+    public double getShortestDurationOfPossibleBetweenTwoCities(City fromCity, City toCity) {
+        List<Flight> flightList=airportRepository.getAllFlight();
+        double min=Double.MAX_VALUE;
+        for(Flight flight:flightList){
+            if(flight.getFromCity().equals(fromCity) && flight.getToCity().equals(toCity) && min>flight.getDuration()){
+                min=flight.getDuration();
+            }
+        }
+        if(min==Double.MAX_VALUE)return -1;
+        return min;
     }
 }
