@@ -25,4 +25,8 @@ public class AirportRepository {
         airportList.add(airport);
         airportMap.put(name,airport);
     }
+
+    public List<Airport> getAllAirport() {
+        return airportList;
+    }
 }
